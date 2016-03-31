@@ -12,4 +12,4 @@ Each DIP switch corresponds to a specific payload:
 The Teensy is plugged into the target system via USB, the desired payload runs, and an initial presence is gained. Ideally, another tester is on the attacker system receiving the callbacks and establishing persistence.
 
 More info:
-https://matterpreter.com/penteensy
+https://matterpreter.com/penteesy/
