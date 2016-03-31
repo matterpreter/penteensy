@@ -15,6 +15,6 @@ More info:
 https://matterpreter.com/penteesy/
 
 To-Do:
-- [] Clean up code formatting
-- [] Find a better way of setting the variable for the Python shell
-- [] Provide the option to have the target download files
+- [ ] Clean up code formatting
+- [ ] Find a better way of setting the variable for the Python shell
+- [ ] Provide the option to have the target download files
