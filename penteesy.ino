@@ -18,7 +18,7 @@
 **/
 
 /**###############      CHANGE THESE       ##############**/
-// ip for remote connections (equivalent of LHOST)
+// IP for remote connections (equivalent of LHOST)
 const char *remote_ip = "192.168.13.37";
 
 // port for netcat shell only
