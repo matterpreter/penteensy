@@ -213,7 +213,7 @@ void wget_download(void) {
     Keyboard.print(remote_url);
     Keyboard.print(remote_file);
     Keyboard.set_key1(KEY_ENTER);
-    Keyboard.send_now()
+    Keyboard.send_now();
     clearKeys();
 }
 
