@@ -1,7 +1,7 @@
 penteensy - USB HID for Penetration Testing
 ===========================================
 
-This device is used on pentests where we have physical access to an unlocked device either through social engineering or sneaking in. It types quicker and with less errors than a human could, allowing testers to get in and out very quickly.
+This device is used on pen tests where we have physical access to an unlocked device either through social engineering or sneaking in. It types quicker and with less errors than a human could, allowing testers to get in and out very quickly.
 
 Each DIP switch corresponds to a specific payload:
 - Switch #1 - Netcat - Connects out to the attacker machine via a named pipe
@@ -15,6 +15,8 @@ More info:
 https://matterpreter.com/penteesy/
 
 To-Do:
-- [ ] Clean up code formatting
+- [ ] Test lower delay times
 - [ ] Find a better way of setting the variable for the Python shell
-- [ ] Provide the option to have the target download files
+- [X] Clean up code formatting
+- [X] Provide the option to have the target download files (not fully tested)
+- [X] Add LED activity indictor in case we can't see the screen
